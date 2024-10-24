@@ -19,7 +19,6 @@ import {
   replaceSizeUnit,
 } from "./replace";
 import { whitespace } from "./whitespace";
-// import { copyTemplate } from "./copyTemplate";
 
 const ATTRIBUTE_FILL_MAP = ["path"];
 
@@ -28,19 +27,10 @@ export const generateComponent = (data: XmlData, config: Config) => {
   const imports: string[] = [];
   const saveDir = path.resolve(config.save_dir);
   const jsxExtension = config.use_typescript ? ".tsx" : ".js";
-  //   const jsExtension = config.use_typescript ? ".ts" : ".js";
   let cases: string = "";
 
   mkdirp.sync(saveDir);
   glob.sync(path.join(saveDir, "*")).forEach((file) => fs.unlinkSync(file));
-
-  //   copyTemplate(
-  //     `helper${jsExtension}`,
-  //     path.join(saveDir, `helper${jsExtension}`)
-  //   );
-  //   if (!config.use_typescript) {
-  //     copyTemplate("helper.d.ts", path.join(saveDir, "helper.d.ts"));
-  //   }
 
   data.svg.symbol.forEach((item) => {
     let singleFile: string;
