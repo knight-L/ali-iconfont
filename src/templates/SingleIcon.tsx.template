@@ -1,0 +1,7 @@
+import React, { SVGAttributes, FC } from 'react';
+
+const #componentName#: FC<SVGAttributes<SVGElement>> = (rest) => {
+  return (#iconContent#);
+};
+
+export default #componentName#;

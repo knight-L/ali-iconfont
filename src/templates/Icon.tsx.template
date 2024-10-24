@@ -1,0 +1,19 @@
+import React, { SVGAttributes, FC } from 'react';
+#imports#
+#exports#
+
+export type IconNames = '#names#';
+
+interface Props extends SVGAttributes<SVGElement> {
+  name: IconNames;
+}
+
+const IconFont: FC<Props> = ({ name, ...rest }) => {
+  switch (name) {
+    #cases#
+  }
+
+  return null;
+};
+
+export default IconFont;

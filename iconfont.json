@@ -1,0 +1,8 @@
+{
+  "symbol_url": "//at.alicdn.com/t/font_1846101_chfm0achgen.js",
+  "use_typescript": false,
+  "save_dir": "./demo",
+  "trim_icon_prefix": "icon",
+  "unit": "rem",
+  "default_icon_size": 16
+}

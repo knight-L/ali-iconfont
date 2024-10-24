@@ -1,0 +1,5 @@
+import { SVGAttributes, FC } from 'react';
+
+declare const #componentName#: FC<SVGAttributes<SVGElement>>;
+
+export default #componentName#;

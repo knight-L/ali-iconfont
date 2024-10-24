@@ -1,0 +1,10 @@
+import { SVGAttributes, FC } from 'react';
+#exports#
+
+interface Props extends SVGAttributes<SVGElement> {
+  name: '#names#';
+}
+
+declare const IconFont: FC<Props>;
+
+export default IconFont;
