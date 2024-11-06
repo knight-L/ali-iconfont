@@ -19,7 +19,7 @@
     "icon-get": "./commands/createIcon.js"
   },
   "scripts": {
-    "copy": "cp -r package.json README.md src/templates dist",
+    "copy": "cp -rf package.json README.md src/templates dist",
     "dev": "tsc --watch",
     "build": "tsc && npm run copy",
     "pub": "release-it --ci && npm publish ./dist"
