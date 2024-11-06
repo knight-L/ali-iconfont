@@ -1,7 +1,5 @@
 import fs from "fs";
 import path from "path";
-import mkdirp from "mkdirp";
-import glob from "glob";
 import colors from "colors";
 import { camelCase, upperFirst } from "lodash";
 import { XmlData } from "iconfont-parser";
@@ -13,7 +11,6 @@ import {
   replaceExports,
   replaceImports,
   replaceNames,
-  replaceNamesArray,
   replaceSingleIconContent,
   replaceSize,
   replaceSizeUnit,
@@ -26,11 +23,10 @@ export const generateComponent = (data: XmlData, config: Config) => {
   const names: string[] = [];
   const imports: string[] = [];
   const saveDir = path.resolve(config.save_dir);
-  const jsxExtension = config.use_typescript ? ".tsx" : ".js";
+  const jsxExtension = ".tsx";
   let cases: string = "";
 
-  mkdirp.sync(saveDir);
-  glob.sync(path.join(saveDir, "*")).forEach((file) => fs.unlinkSync(file));
+  fs.mkdirSync(saveDir, { recursive: true });
 
   data.svg.symbol.forEach((item) => {
     let singleFile: string;
@@ -61,22 +57,7 @@ export const generateComponent = (data: XmlData, config: Config) => {
       singleFile
     );
 
-    if (!config.use_typescript) {
-      let typeDefinitionFile = getTemplate("SingleIcon.d.ts");
-
-      typeDefinitionFile = replaceComponentName(
-        typeDefinitionFile,
-        componentName
-      );
-      fs.writeFileSync(
-        path.join(saveDir, componentName + ".d.ts"),
-        typeDefinitionFile
-      );
-    }
-
-    console.log(
-      `${colors.green("√")} Generated icon "${colors.yellow(iconId)}"`
-    );
+    console.log(`${colors.green("√")} 生成图标 "${colors.yellow(iconId)}"`);
   });
 
   let iconFile = getTemplate("Icon" + jsxExtension);
@@ -85,24 +66,14 @@ export const generateComponent = (data: XmlData, config: Config) => {
   iconFile = replaceImports(iconFile, imports);
   iconFile = replaceExports(iconFile, imports);
 
-  if (config.use_typescript) {
-    iconFile = replaceNames(iconFile, names);
-  } else {
-    iconFile = replaceNamesArray(iconFile, names);
-
-    let typeDefinitionFile = getTemplate(`Icon.d.ts`);
-
-    typeDefinitionFile = replaceExports(typeDefinitionFile, imports);
-    typeDefinitionFile = replaceNames(typeDefinitionFile, names);
-    fs.writeFileSync(path.join(saveDir, "index.d.ts"), typeDefinitionFile);
-  }
+  iconFile = replaceNames(iconFile, names);
 
   fs.writeFileSync(path.join(saveDir, "index" + jsxExtension), iconFile);
 
   console.log(
-    `\n${colors.green("√")} All icons have putted into dir: ${colors.green(
-      config.save_dir
-    )}\n`
+    "\n",
+    `${colors.green("√")} 图标已生成到目录: ${colors.green(config.save_dir)}`,
+    "\n"
   );
 };
 
@@ -160,16 +131,14 @@ const addAttribute = (
 
   if (sub && sub.$) {
     if (ATTRIBUTE_FILL_MAP.includes(domName)) {
-      // Set default color same as in iconfont.cn
-      // And create placeholder to inject color by user's behavior
-      sub.$.fill = sub.$.fill || "#333333";
+      sub.$.fill = sub.$.fill || "currentColor";
     }
 
-    for (const attributeName of Object.keys(sub.$)) {
+    for (let attributeName in sub.$) {
       if (attributeName === "fill") {
         template += `\n${whitespace(counter.baseIdent + 4)}${camelCase(
           attributeName
-        )}="currentColor"`;
+        )}='${sub.$[attributeName]}'`;
         counter.colorIndex += 1;
       } else {
         template += `\n${whitespace(counter.baseIdent + 4)}${camelCase(

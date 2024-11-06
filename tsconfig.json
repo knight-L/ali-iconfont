@@ -1,16 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "ESNext",
         "module": "commonjs",
-        "lib": [
-            "esnext"
-        ],
+        "lib": [],
         "allowJs": false,
         "declaration": true,
         "removeComments": false,
-        "outDir": "./build",
-        "rootDir": "./",
-        "jsx": "react",
+        "outDir": "./dist",
+        "rootDir": "./src",
         "importHelpers": true,
         "downlevelIteration": true,
         "strict": true,
@@ -32,5 +29,8 @@
     },
     "include": [
         "src"
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }
