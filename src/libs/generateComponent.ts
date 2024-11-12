@@ -1,8 +1,13 @@
+/*
+ * @Author: Knight
+ * @Date: 2024-10-24 15:51:37
+ * @LastEditors: Knight
+ * @LastEditTime: 2024-11-12 10:54:43
+ */
 import fs from "fs";
 import path from "path";
 import colors from "colors";
 import { camelCase, upperFirst } from "lodash";
-import { XmlData } from "iconfont-parser";
 import { Config } from "./getConfig";
 import { getTemplate } from "./getTemplate";
 import {
@@ -16,6 +21,7 @@ import {
   replaceSizeUnit,
 } from "./replace";
 import { whitespace } from "./whitespace";
+import { XmlData } from "../commands/createIcon";
 
 const ATTRIBUTE_FILL_MAP = ["path"];
 

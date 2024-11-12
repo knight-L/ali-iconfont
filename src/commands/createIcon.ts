@@ -1,15 +1,40 @@
 #!/usr/bin/env node
-
+import axios from "axios";
 import colors from "colors";
+import { parseString } from "xml2js";
 import { getConfig } from "../libs/getConfig";
-import { fetchXml } from "iconfont-parser";
 import { generateComponent } from "../libs/generateComponent";
+
+export interface XmlData {
+  svg: {
+    symbol: Array<{
+      $: {
+        viewBox: string;
+        id: string;
+      };
+      path: Array<{
+        $: {
+          d: string;
+          fill?: string;
+        };
+      }>;
+    }>;
+  };
+}
 
 const config = getConfig();
 
-fetchXml(config.symbol_url)
+axios
+  .get(config.symbol_url)
   .then((result) => {
-    generateComponent(result, config);
+    const matches = String(result.data).match(/'<svg>(.+?)<\/svg>'/);
+    parseString(`<svg>${matches?.[1]}</svg>`, (err, result: XmlData) => {
+      if (result) {
+        generateComponent(result, config);
+      } else {
+        throw err;
+      }
+    });
   })
   .catch((e) => {
     console.error(colors.red(e.message || "Unknown Error"));
