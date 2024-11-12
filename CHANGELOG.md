@@ -1,5 +1,11 @@
 
 
+## [1.0.8](https://github.com/knight-L/ali-iconfont/compare/1.0.7...1.0.8) (2024-11-12)
+
+### 🐞问题修复
+
+* 修复发布版本和本地版本不同步 ([ef2d34d](https://github.com/knight-L/ali-iconfont/commit/ef2d34d4b9eae09c2ad315e4bc827ec8e14a724f))
+
 ## [1.0.7](https://github.com/knight-L/ali-iconfont/compare/1.0.6...1.0.7) (2024-11-12)
 
 ## [1.0.6](https://github.com/knight-L/ali-iconfont/compare/1.0.5...1.0.6) (2024-11-06)
