@@ -13,6 +13,9 @@
   "repository": "",
   "author": "",
   "license": "MIT",
+  "github": {
+    "release": true
+  },
   "bin": {
     "icon": "./commands/help.js",
     "icon-init": "./commands/createJson.js",
