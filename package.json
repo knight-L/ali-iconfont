@@ -14,7 +14,8 @@
   "author": "",
   "license": "MIT",
   "github": {
-    "release": true
+    "release": true,
+    "autoGenerate": true
   },
   "bin": {
     "icon": "./commands/help.js",
