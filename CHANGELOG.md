@@ -1,5 +1,11 @@
 
 
+## [1.0.25](https://github.com/knight-L/ali-iconfont/compare/1.0.24...1.0.25) (2024-11-14)
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 清除无关信息 ([00fbc80](https://github.com/knight-L/ali-iconfont/commit/00fbc80818f90999e23d26102251c79fb2d4991d))
+
 ## [1.0.24](https://github.com/knight-L/ali-iconfont/compare/1.0.23...1.0.24) (2024-11-14)
 
 ### 🐛 Bug Fixes | Bug 修复
