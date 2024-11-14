@@ -1,5 +1,11 @@
 
 
+## [1.0.24](https://github.com/knight-L/ali-iconfont/compare/1.0.23...1.0.24) (2024-11-14)
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复模版生成问题，默认图标大小为1em ([007c7dc](https://github.com/knight-L/ali-iconfont/commit/007c7dce428e651ae3284c7819da2aed6d76deb6))
+
 ## [1.0.23](https://github.com/knight-L/ali-iconfont/compare/1.0.22...1.0.23) (2024-11-14)
 
 ### 👷‍ Build System | 构建
