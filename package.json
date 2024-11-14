@@ -14,18 +14,17 @@
   "author": "",
   "license": "MIT",
   "bin": {
-    "icon": "./commands/help.js",
-    "icon-init": "./commands/createJson.js",
-    "icon-get": "./commands/createIcon.js"
+    "icon": "./dist/commands/help.js",
+    "icon-init": "./dist/commands/createJson.js",
+    "icon-get": "./dist/commands/createIcon.js"
   },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "copy": "cp -rf package.json README.md src/templates dist",
     "dev": "tsc --watch",
     "build": "tsc",
-    "pub": "release-it --ci && npm run copy && npm publish ./dist"
+    "pub": "release-it --ci"
   },
   "dependencies": {
     "axios": "^1.7.7",
