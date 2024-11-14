@@ -1,10 +1,5 @@
 #!/usr/bin/env node
-/*
- * @Author: Knight
- * @Date: 2024-10-24 15:51:37
- * @LastEditors: Knight
- * @LastEditTime: 2024-11-14 10:42:07
- */
+
 import axios from "axios";
 import colors from "colors";
 import { parseString } from "xml2js";
