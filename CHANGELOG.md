@@ -1,5 +1,11 @@
 
 
+## [1.0.23](https://github.com/knight-L/ali-iconfont/compare/1.0.22...1.0.23) (2024-11-14)
+
+### 👷‍ Build System | 构建
+
+* package.json ([6e8b762](https://github.com/knight-L/ali-iconfont/commit/6e8b762d87b3a0116ebd78f3013bd96881e9bf8a))
+
 ## [1.0.22](https://github.com/knight-L/ali-iconfont/compare/1.0.21...1.0.22) (2024-11-14)
 
 ### 👷‍ Build System | 构建
