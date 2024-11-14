@@ -18,10 +18,13 @@
     "icon-init": "./commands/createJson.js",
     "icon-get": "./commands/createIcon.js"
   },
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "copy": "cp -rf package.json README.md src/templates dist",
     "dev": "tsc --watch",
-    "build": "tsc && npm run copy",
+    "build": "tsc",
     "pub": "release-it --ci && npm run copy && npm publish ./dist"
   },
   "dependencies": {
