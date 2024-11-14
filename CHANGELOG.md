@@ -1,5 +1,7 @@
 
 
+## [1.0.19](https://github.com/knight-L/ali-iconfont/compare/1.0.18...1.0.19) (2024-11-14)
+
 ## [1.0.18](https://github.com/knight-L/ali-iconfont/compare/1.0.17...1.0.18) (2024-11-14)
 
 ## [1.0.17](https://github.com/knight-L/ali-iconfont/compare/1.0.16...1.0.17) (2024-11-14)
