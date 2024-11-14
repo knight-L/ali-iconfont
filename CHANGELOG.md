@@ -1,5 +1,7 @@
 
 
+## [1.0.21](https://github.com/knight-L/ali-iconfont/compare/1.0.20...1.0.21) (2024-11-14)
+
 ## [1.0.20](https://github.com/knight-L/ali-iconfont/compare/1.0.19...1.0.20) (2024-11-14)
 
 ### 👷‍ Build System | 构建
