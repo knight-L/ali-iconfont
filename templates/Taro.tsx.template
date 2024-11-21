@@ -6,7 +6,7 @@ const #componentName#: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivEl
         width: "1em",
         height: "1em",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `#iconContent#`,
+        backgroundImage:`url(data:image/svg+xml,#iconContent#)`,
       }}
     />
 };

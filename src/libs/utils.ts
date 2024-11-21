@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-11-21 10:05:12
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 12:45:48
+ * @LastEditTime: 2024-11-21 14:30:55
  */
 import { XmlData } from "../commands/createIcon";
 import { replaceHexToRgb } from "./replace";
@@ -15,7 +15,7 @@ export const generateCase = (
     hexToRgb: boolean;
   }
 ) => {
-  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{svgSize}}px' height='{{svgSize}}px'>`;
+  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='1em' height='1em'>`;
 
   for (const domName of Object.keys(data)) {
     if (domName === "$") {
