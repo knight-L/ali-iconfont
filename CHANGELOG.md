@@ -1,5 +1,11 @@
 
 
+## [1.1.7](https://github.com/knight-L/ali-iconfont/compare/1.1.6...1.1.7) (2024-11-21)
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复Taro版本图标参数丢失 ([e15ed48](https://github.com/knight-L/ali-iconfont/commit/e15ed48880b004a98da07516e8211a8a4a1aea9e))
+
 ## [1.1.6](https://github.com/knight-L/ali-iconfont/compare/1.1.5...1.1.6) (2024-11-21)
 
 ### 🐛 Bug Fixes | Bug 修复
