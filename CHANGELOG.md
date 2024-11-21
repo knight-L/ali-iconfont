@@ -1,5 +1,11 @@
 
 
+## [1.1.4](https://github.com/knight-L/ali-iconfont/compare/1.1.3...1.1.4) (2024-11-21)
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复Taro图标生成错误 ([6fac99a](https://github.com/knight-L/ali-iconfont/commit/6fac99aa2b398d52afa04ad17d011d7bab82074f))
+
 ## [1.1.3](https://github.com/knight-L/ali-iconfont/compare/1.1.2...1.1.3) (2024-11-21)
 
 ### 🐛 Bug Fixes | Bug 修复
