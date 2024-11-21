@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-11-21 10:09:21
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 16:26:09
+ * @LastEditTime: 2024-11-21 16:35:15
  */
 import fs from "fs";
 import path from "path";
@@ -118,10 +118,10 @@ export const addAttribute = (
     for (let attributeName in sub.$) {
       if (attributeName === "fill") {
         template +=
-          `${whitespace(counter.baseIdent + 4)}${camelCase(attributeName)}=` +
+          `${whitespace(counter.baseIdent + 4)}${camelCase(attributeName)}='` +
           "${color ??" +
           `'${sub.$[attributeName]}'` +
-          "}";
+          "}'";
         counter.colorIndex += 1;
       } else {
         template += `${whitespace(counter.baseIdent + 4)}${camelCase(
