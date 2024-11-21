@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-10-24 15:51:37
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-02 18:26:25
+ * @LastEditTime: 2024-11-21 11:00:27
  */
 import path from "path";
 import fs from "fs";
@@ -13,8 +13,7 @@ export interface Config {
   symbol_url: string;
   save_dir: string;
   trim_icon_prefix: string;
-  unit: string;
-  default_icon_size: number;
+  type: "H5" | "Taro";
 }
 
 let cacheConfig: Config;
@@ -46,10 +45,8 @@ export const getConfig = () => {
     config.symbol_url = "http:" + config.symbol_url;
   }
 
-  config.save_dir = config.save_dir || defaultConfig.save_dir;
-  config.default_icon_size =
-    config.default_icon_size || defaultConfig.default_icon_size;
-  config.unit = config.unit || defaultConfig.unit;
+  config.save_dir ??= defaultConfig.save_dir;
+  config.type ??= defaultConfig.type as Config["type"];
 
   cacheConfig = config;
 

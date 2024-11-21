@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-10-24 15:51:37
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-14 10:42:54
+ * @LastEditTime: 2024-11-21 11:35:57
  */
 import fs from "fs";
 import path from "path";
@@ -11,14 +11,9 @@ import { camelCase, upperFirst } from "lodash";
 import { Config } from "./getConfig";
 import { getTemplate } from "./getTemplate";
 import {
-  replaceCases,
   replaceComponentName,
   replaceExports,
-  replaceImports,
-  replaceNames,
   replaceSingleIconContent,
-  replaceSize,
-  replaceSizeUnit,
 } from "./replace";
 import { whitespace } from "./whitespace";
 import { XmlData } from "../commands/createIcon";
@@ -53,10 +48,8 @@ export const generateComponent = (data: XmlData, config: Config) => {
     cases += `${whitespace(6)}return <${componentName} {...rest} />;\n`;
 
     singleFile = getTemplate("SingleIcon" + jsxExtension);
-    singleFile = replaceSize(singleFile, config.default_icon_size);
     singleFile = replaceComponentName(singleFile, componentName);
     singleFile = replaceSingleIconContent(singleFile, generateCase(item, 4));
-    singleFile = replaceSizeUnit(singleFile, config.unit);
 
     fs.writeFileSync(
       path.join(saveDir, componentName + jsxExtension),
@@ -68,11 +61,7 @@ export const generateComponent = (data: XmlData, config: Config) => {
 
   let iconFile = getTemplate("Icon" + jsxExtension);
 
-  iconFile = replaceCases(iconFile, cases);
-  iconFile = replaceImports(iconFile, imports);
   iconFile = replaceExports(iconFile, imports);
-
-  iconFile = replaceNames(iconFile, names);
 
   fs.writeFileSync(path.join(saveDir, "index" + jsxExtension), iconFile);
 

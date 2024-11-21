@@ -5,6 +5,7 @@ import colors from "colors";
 import { parseString } from "xml2js";
 import { getConfig } from "../libs/getConfig";
 import { generateComponent } from "../libs/generateComponent";
+import { generateTaroComponent } from "../libs/generateTaroComponent";
 
 export interface XmlData {
   svg: {
@@ -36,7 +37,14 @@ axios
 
     parseString(matches?.[0]!, (err, result: XmlData) => {
       if (result) {
-        generateComponent(result, config);
+        switch (config.type) {
+          case "H5":
+            generateComponent(result, config);
+            break;
+          case "Taro":
+            generateTaroComponent(result, config);
+            break;
+        }
       } else {
         throw err;
       }
