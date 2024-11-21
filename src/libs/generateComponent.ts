@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-10-24 15:51:37
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 15:12:29
+ * @LastEditTime: 2024-11-21 15:19:13
  */
 import fs from "fs";
 import path from "path";
@@ -138,7 +138,7 @@ export const addAttribute = (
       } else {
         template += `${whitespace(counter.baseIdent + 4)}${camelCase(
           attributeName
-        )}="${sub.$[attributeName]}"`;
+        )}='${sub.$[attributeName]}'`;
       }
     }
   }
