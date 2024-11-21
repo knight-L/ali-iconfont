@@ -1,5 +1,11 @@
 
 
+## [1.1.5](https://github.com/knight-L/ali-iconfont/compare/1.1.4...1.1.5) (2024-11-21)
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复图标颜色失效 ([65ec1b1](https://github.com/knight-L/ali-iconfont/commit/65ec1b1c0f33e2c5ecf531d8ea371229535cef92))
+
 ## [1.1.4](https://github.com/knight-L/ali-iconfont/compare/1.1.3...1.1.4) (2024-11-21)
 
 ### 🐛 Bug Fixes | Bug 修复
