@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-10-24 15:51:37
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 15:30:25
+ * @LastEditTime: 2024-11-21 15:53:42
  */
 import fs from "fs";
 import path from "path";
@@ -126,7 +126,7 @@ export const addAttribute = (
 
   if (sub && sub.$) {
     if (ATTRIBUTE_FILL_MAP.includes(domName)) {
-      sub.$.fill = sub.$.fill || "currentColor";
+      sub.$.fill ??= "currentColor";
     }
 
     for (let attributeName in sub.$) {

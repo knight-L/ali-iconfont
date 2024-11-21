@@ -1,6 +1,11 @@
 import React, { FC } from 'react';
 
-const #componentName#: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = (rest) => {
+interface IconProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
+    color?: string;
+}
+
+const #componentName#: FC<IconProps> = (props) => {
+    const {color,...rest}=props
     return <div
       style={{
         width: "1em",

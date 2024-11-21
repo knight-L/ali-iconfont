@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-11-21 10:09:21
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 15:19:01
+ * @LastEditTime: 2024-11-21 16:11:31
  */
 import fs from "fs";
 import path from "path";
@@ -112,14 +112,16 @@ export const addAttribute = (
 
   if (sub && sub.$) {
     if (ATTRIBUTE_FILL_MAP.includes(domName)) {
-      sub.$.fill = sub.$.fill || "currentColor";
+      sub.$.fill ??= "#999999";
     }
 
     for (let attributeName in sub.$) {
       if (attributeName === "fill") {
-        template += `${whitespace(counter.baseIdent + 4)}${camelCase(
-          attributeName
-        )}='${sub.$[attributeName]}'`;
+        template +=
+          `${whitespace(counter.baseIdent + 4)}${camelCase(attributeName)}=` +
+          "${color ??" +
+          `'${sub.$[attributeName]}'` +
+          "}";
         counter.colorIndex += 1;
       } else {
         template += `${whitespace(counter.baseIdent + 4)}${camelCase(
