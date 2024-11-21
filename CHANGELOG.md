@@ -1,5 +1,15 @@
 
 
+## [1.1.0](https://github.com/knight-L/ali-iconfont/compare/1.0.25...1.1.0) (2024-11-21)
+
+### ✨ Features | 新功能
+
+* 增加Taro图标生成 ([fbeb4c8](https://github.com/knight-L/ali-iconfont/commit/fbeb4c821dd31b56ef6e05e46ac50e5554fb33ef))
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 清除测试文件 ([8fb6724](https://github.com/knight-L/ali-iconfont/commit/8fb672422c41cf54ed4664c64903aedcd5b718e4))
+
 ## [1.0.25](https://github.com/knight-L/ali-iconfont/compare/1.0.24...1.0.25) (2024-11-14)
 
 ### 🐛 Bug Fixes | Bug 修复
