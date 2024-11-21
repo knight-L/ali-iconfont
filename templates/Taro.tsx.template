@@ -11,6 +11,7 @@ const #componentName#: FC<IconProps> = (props) => {
         width: "1em",
         height: "1em",
         backgroundRepeat: "no-repeat",
+        backgroundSize: "100%",
         backgroundImage:`url("data:image/svg+xml,#iconContent#")`,
       }}
       {...rest}

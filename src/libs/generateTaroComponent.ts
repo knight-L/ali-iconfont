@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-11-21 10:09:21
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 16:11:31
+ * @LastEditTime: 2024-11-21 16:26:09
  */
 import fs from "fs";
 import path from "path";
@@ -73,7 +73,7 @@ export const generateCase = (
   data: XmlData["svg"]["symbol"][number],
   baseIdent: number
 ) => {
-  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='1em' height='1em'>`;
+  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg'>`;
 
   for (const domName of Object.keys(data)) {
     if (domName === "$") {
