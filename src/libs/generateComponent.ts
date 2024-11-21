@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-10-24 15:51:37
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 11:35:57
+ * @LastEditTime: 2024-11-21 14:46:42
  */
 import fs from "fs";
 import path from "path";
@@ -17,8 +17,7 @@ import {
 } from "./replace";
 import { whitespace } from "./whitespace";
 import { XmlData } from "../commands/createIcon";
-
-const ATTRIBUTE_FILL_MAP = ["path"];
+import { addAttribute } from "./utils";
 
 export const generateComponent = (data: XmlData, config: Config) => {
   const names: string[] = [];
@@ -113,35 +112,6 @@ const generateCase = (
   }
 
   template += `${whitespace(baseIdent)}</svg>\n`;
-
-  return template;
-};
-
-const addAttribute = (
-  domName: string,
-  sub: XmlData["svg"]["symbol"][number]["path"][number],
-  counter: { colorIndex: number; baseIdent: number }
-) => {
-  let template = "";
-
-  if (sub && sub.$) {
-    if (ATTRIBUTE_FILL_MAP.includes(domName)) {
-      sub.$.fill = sub.$.fill || "currentColor";
-    }
-
-    for (let attributeName in sub.$) {
-      if (attributeName === "fill") {
-        template += `\n${whitespace(counter.baseIdent + 4)}${camelCase(
-          attributeName
-        )}='${sub.$[attributeName]}'`;
-        counter.colorIndex += 1;
-      } else {
-        template += `\n${whitespace(counter.baseIdent + 4)}${camelCase(
-          attributeName
-        )}="${sub.$[attributeName]}"`;
-      }
-    }
-  }
 
   return template;
 };

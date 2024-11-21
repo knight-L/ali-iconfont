@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-11-21 10:09:21
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 12:01:17
+ * @LastEditTime: 2024-11-21 14:45:45
  */
 import fs from "fs";
 import path from "path";
@@ -40,7 +40,7 @@ export const generateTaroComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     imports.push(componentName);
 
-    const component = generateCase(item, { hexToRgb: true });
+    const component = generateCase(item, 4);
 
     singleFile = getTemplate("Taro" + jsxExtension);
     singleFile = replaceComponentName(singleFile, componentName);

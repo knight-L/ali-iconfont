@@ -2,18 +2,17 @@
  * @Author: Knight
  * @Date: 2024-11-21 10:05:12
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 14:30:55
+ * @LastEditTime: 2024-11-21 14:45:08
  */
+import { camelCase } from "lodash";
 import { XmlData } from "../commands/createIcon";
-import { replaceHexToRgb } from "./replace";
+import { whitespace } from "./whitespace";
 
 const ATTRIBUTE_FILL_MAP = ["path"];
 
 export const generateCase = (
   data: XmlData["svg"]["symbol"][number],
-  config?: {
-    hexToRgb: boolean;
-  }
+  baseIdent: number
 ) => {
   let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='1em' height='1em'>`;
 
@@ -24,23 +23,18 @@ export const generateCase = (
 
     const counter = {
       colorIndex: 0,
+      baseIdent,
     };
 
     if (data[domName].$) {
       template += `<${domName}${addAttribute(
         domName,
         data[domName],
-        counter,
-        config
+        counter
       )} />`;
     } else if (Array.isArray(data[domName])) {
       data[domName].forEach((sub) => {
-        template += `<${domName}${addAttribute(
-          domName,
-          sub,
-          counter,
-          config
-        )} />`;
+        template += `<${domName}${addAttribute(domName, sub, counter)} />`;
       });
     }
   }
@@ -50,38 +44,28 @@ export const generateCase = (
   return template.replace(/<|>/g, (matched) => encodeURIComponent(matched));
 };
 
-const addAttribute = (
+export const addAttribute = (
   domName: string,
   sub: XmlData["svg"]["symbol"][number]["path"][number],
-  counter: { colorIndex: number },
-  config?: {
-    hexToRgb: boolean;
-  }
+  counter: { colorIndex: number; baseIdent: number }
 ) => {
   let template = "";
 
   if (sub && sub.$) {
     if (ATTRIBUTE_FILL_MAP.includes(domName)) {
-      // Set default color same as in iconfont.cn
-      // And create placeholder to inject color by user's behavior
       sub.$.fill = sub.$.fill || "currentColor";
     }
 
-    for (const attributeName of Object.keys(sub.$)) {
+    for (let attributeName in sub.$) {
       if (attributeName === "fill") {
-        let color: string | undefined;
-        // let keyword: string;
-        if (config?.hexToRgb) {
-          color = replaceHexToRgb(sub.$[attributeName]);
-          //   keyword = "colors";
-        } else {
-          //   keyword = "color";
-          color = sub.$[attributeName];
-        }
-        template += ` ${attributeName}='${color}'`;
+        template += `\n${whitespace(counter.baseIdent + 4)}${camelCase(
+          attributeName
+        )}='${sub.$[attributeName]}'`;
         counter.colorIndex += 1;
       } else {
-        template += ` ${attributeName}='${sub.$[attributeName]}'`;
+        template += `\n${whitespace(counter.baseIdent + 4)}${camelCase(
+          attributeName
+        )}="${sub.$[attributeName]}"`;
       }
     }
   }
