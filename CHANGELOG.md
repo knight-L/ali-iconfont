@@ -1,5 +1,11 @@
 
 
+## [1.1.6](https://github.com/knight-L/ali-iconfont/compare/1.1.5...1.1.6) (2024-11-21)
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复双引号引起的图标失效问题 ([495430c](https://github.com/knight-L/ali-iconfont/commit/495430cdc3b90e64a3096f1c5ec2af8d6eae3dc0))
+
 ## [1.1.5](https://github.com/knight-L/ali-iconfont/compare/1.1.4...1.1.5) (2024-11-21)
 
 ### 🐛 Bug Fixes | Bug 修复
