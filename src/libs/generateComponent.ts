@@ -2,7 +2,7 @@
  * @Author: Knight
  * @Date: 2024-10-24 15:51:37
  * @LastEditors: Knight
- * @LastEditTime: 2024-11-21 15:19:13
+ * @LastEditTime: 2024-11-21 15:30:25
  */
 import fs from "fs";
 import path from "path";
@@ -41,9 +41,9 @@ export const generateComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
 
     cases += `${whitespace(4)}case '${iconIdAfterTrim}':\n`;
+    cases += `${whitespace(6)}return <${componentName} {...rest} />;\n`;
 
     imports.push(componentName);
-    cases += `${whitespace(6)}return <${componentName} {...rest} />;\n`;
 
     singleFile = getTemplate("SingleIcon" + jsxExtension);
     singleFile = replaceComponentName(singleFile, componentName);

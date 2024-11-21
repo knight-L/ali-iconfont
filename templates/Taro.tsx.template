@@ -8,6 +8,7 @@ const #componentName#: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivEl
         backgroundRepeat: "no-repeat",
         backgroundImage:`url("data:image/svg+xml,#iconContent#")`,
       }}
+      {...rest}
     />
 };
 
