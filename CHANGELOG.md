@@ -1,5 +1,7 @@
 
 
+## [1.1.8](https://github.com/knight-L/ali-iconfont/compare/1.1.7...1.1.8) (2024-11-21)
+
 ## [1.1.7](https://github.com/knight-L/ali-iconfont/compare/1.1.6...1.1.7) (2024-11-21)
 
 ### 🐛 Bug Fixes | Bug 修复
